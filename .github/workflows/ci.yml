@@ -8,16 +8,16 @@ jobs:
   build-and-test:
     runs-on: macos-latest
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Show environment
-      run: |
-          echo "Xcode version:"
-          xcodebuild -version
-          echo "\nAvailable simulators:"
-          xcrun simctl list devices available | grep "iPhone"
+      - name: Show environment
+        run: |
+            echo "Xcode version:"
+            xcodebuild -version
+            echo "\nAvailable simulators:"
+            xcrun simctl list devices available | grep "iPhone"
           
-    - name: Clean DerivedData
-      run: rm -rf ~/Library/Developer/Xcode/DerivedData
+      - name: Clean DerivedData
+        run: rm -rf ~/Library/Developer/Xcode/DerivedData
