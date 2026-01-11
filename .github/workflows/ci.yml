@@ -45,3 +45,4 @@ jobs:
         with:
           path: test-results.xcresult
         if: success() || failure()
+        continue-on-error: true
