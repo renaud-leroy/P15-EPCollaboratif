@@ -12,13 +12,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Show environment
-        run: |
-            echo "Xcode version:"
-            xcodebuild -version
-            echo "\nAvailable simulators:"
-            xcrun simctl list devices available | grep "iPhone"
-          
       - name: Clean DerivedData
         run: rm -rf ~/Library/Developer/Xcode/DerivedData
 
@@ -46,3 +39,4 @@ jobs:
           path: test-results.xcresult
         if: success() || failure()
         continue-on-error: true
+         token: ${{ secrets.GITHUB_TOKEN }}
